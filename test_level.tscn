@@ -7,7 +7,7 @@
 [ext_resource path="res://net.tscn" type="PackedScene" id=5]
 [ext_resource path="res://balloon.tscn" type="PackedScene" id=6]
 
-[node name="TestLevel" type="Node" index="0"]
+[node name="TestLevel" type="Node"]
 
 script = ExtResource( 1 )
 
@@ -42,9 +42,8 @@ position = Vector2( 178, 868 )
 [node name="Cannon" parent="." index="7" instance=ExtResource( 4 )]
 
 position = Vector2( 1870, 898 )
-rotation = -3.4643
+rotation = -0.546228
 VARIANCE = 500.0
-START_ACTIVATED = true
 
 [node name="Net" parent="." index="8" instance=ExtResource( 5 )]
 
@@ -58,7 +57,7 @@ _sections_unfolded = [ "Collision", "Transform" ]
 [node name="Cannon2" parent="." index="10" instance=ExtResource( 4 )]
 
 position = Vector2( 2626, 864 )
-rotation = -4.06482
+rotation = -7.10357
 START_ACTIVATED = false
 
 [connection signal="destroyed" from="Balloon" to="Net" method="remove"]

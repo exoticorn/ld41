@@ -14,7 +14,7 @@ func _process(delta):
 		queue_free()
 
 func player_swing(pos):
-	var delta = position - pos
+	var delta = global_position - pos
 	if delta.length() < MAX_HIT_DISTANCE:
 		delta = delta.normalized()
 		linear_velocity += delta.normalized() * (HIT_SPEED - delta.dot(linear_velocity) * (1 + BALL_BOUNCE))

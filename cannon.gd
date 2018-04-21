@@ -18,7 +18,7 @@ func _process(delta):
 		timer = TIME_BETWEEN_BALLS
 		var ball = ball_template.instance()
 		ball.position = position
-		ball.linear_velocity = transform.y * SPEED
+		ball.linear_velocity = transform.y * -SPEED
 		ball.linear_velocity += Vector2(rand_range(-0.5, 0.5), rand_range(-0.5, 0.5)) * VARIANCE
 		get_parent().add_child(ball)
 

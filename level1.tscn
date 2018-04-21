@@ -1,0 +1,99 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://level1.gd" type="Script" id=1]
+[ext_resource path="res://platform.tscn" type="PackedScene" id=2]
+[ext_resource path="res://net.tscn" type="PackedScene" id=3]
+[ext_resource path="res://balloon.tscn" type="PackedScene" id=4]
+[ext_resource path="res://cannon.tscn" type="PackedScene" id=5]
+[ext_resource path="res://player.tscn" type="PackedScene" id=6]
+
+[node name="Level1" type="Node" index="0"]
+
+script = ExtResource( 1 )
+
+[node name="Section1" type="Node2D" parent="." index="0"]
+
+[node name="Platform" parent="Section1" index="0" instance=ExtResource( 2 )]
+
+position = Vector2( 212.218, 786.296 )
+
+[node name="Platform6" parent="Section1" index="1" instance=ExtResource( 2 )]
+
+position = Vector2( -224.02, 718.134 )
+
+[node name="Platform7" parent="Section1" index="2" instance=ExtResource( 2 )]
+
+position = Vector2( -592.096, 550.001 )
+
+[node name="Platform2" parent="Section1" index="3" instance=ExtResource( 2 )]
+
+position = Vector2( 628.493, 789.017 )
+
+[node name="Platform3" parent="Section1" index="4" instance=ExtResource( 2 )]
+
+position = Vector2( 1061.09, 789.017 )
+
+[node name="Platform4" parent="Section1" index="5" instance=ExtResource( 2 )]
+
+position = Vector2( 1501.78, 789.017 )
+
+[node name="Platform5" parent="Section1" index="6" instance=ExtResource( 2 )]
+
+position = Vector2( 1941.09, 789.017 )
+
+[node name="Net" parent="Section1" index="7" instance=ExtResource( 3 )]
+
+position = Vector2( 1493.69, 489.735 )
+
+[node name="Balloon" parent="Section1" index="8" instance=ExtResource( 4 )]
+
+position = Vector2( 2304.47, 465.248 )
+
+[node name="Cannon" parent="Section1" index="9" instance=ExtResource( 5 )]
+
+position = Vector2( 2054.6, 672.714 )
+rotation = -0.800675
+
+[node name="Section2" type="Node2D" parent="." index="1"]
+
+position = Vector2( 2804.53, 266.858 )
+
+[node name="Platform" parent="Section2" index="0" instance=ExtResource( 2 )]
+
+position = Vector2( -115.806, 362.525 )
+
+[node name="Platform2" parent="Section2" index="1" instance=ExtResource( 2 )]
+
+position = Vector2( 563.927, 221.543 )
+
+[node name="Platform3" parent="Section2" index="2" instance=ExtResource( 2 )]
+
+position = Vector2( 996.943, 216.508 )
+
+[node name="Net" parent="Section2" index="3" instance=ExtResource( 3 )]
+
+position = Vector2( 1173.17, -85.5961 )
+
+[node name="Balloon" parent="Section2" index="4" instance=ExtResource( 4 )]
+
+position = Vector2( 1953.61, 151.052 )
+
+[node name="Cannon" parent="Section2" index="5" instance=ExtResource( 5 )]
+
+position = Vector2( 2136.18, 4.41055 )
+rotation = -0.634229
+START_ACTIVATED = false
+
+[node name="Player" parent="." index="2" instance=ExtResource( 6 )]
+
+position = Vector2( -717.508, 362.24 )
+
+[node name="LevelBounds" type="Node2D" parent="." index="3"]
+
+position = Vector2( 8013.93, 277.111 )
+
+[connection signal="destroyed" from="Section1/Balloon" to="Section1/Net" method="remove"]
+
+[connection signal="destroyed" from="Section2/Balloon" to="Section2/Net" method="remove"]
+
+
