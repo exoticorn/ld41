@@ -16,6 +16,9 @@ collision_layer = 1
 collision_mask = 1
 collision/safe_margin = 0.08
 script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="Sprite" type="Sprite" parent="." index="0"]
 
@@ -23,16 +26,10 @@ texture = ExtResource( 2 )
 region_enabled = true
 region_rect = Rect2( 230, 105, 125, 214 )
 _sections_unfolded = [ "Region" ]
-__meta__ = {
-"_edit_lock_": true
-}
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
 
 position = Vector2( -8, 11 )
 shape = SubResource( 1 )
-__meta__ = {
-"_edit_lock_": true
-}
 
 
