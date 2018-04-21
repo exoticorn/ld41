@@ -17,6 +17,10 @@ const AIR_ACCEL = 5
 func _ready():
 	pass
 
+func _process(delta):
+	if Input.is_action_just_pressed('game_swing'):
+		get_tree().call_group('balls', 'player_swing', position + Vector2(0, -30))
+
 func _physics_process(delta):
 	movement.y = min(MAX_FALL_SPEED, movement.y + GRAVITY * delta)
 	var input_x = 0
