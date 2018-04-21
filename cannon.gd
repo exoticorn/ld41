@@ -2,8 +2,8 @@ extends Node2D
 
 export (float) var SPEED = 1200
 export (float) var VARIANCE = 200
-export (float) var TIME_BETWEEN_BALLS = 4
-export (float) var INITIAL_DELAY = 1
+export (float) var TIME_BETWEEN_BALLS = 3
+export (float) var INITIAL_DELAY = 0
 
 var ball_template = load("res://ball.tscn")
 var timer = INITIAL_DELAY

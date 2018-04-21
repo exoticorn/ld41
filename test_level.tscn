@@ -5,7 +5,7 @@
 [ext_resource path="res://ball.tscn" type="PackedScene" id=3]
 [ext_resource path="res://cannon.tscn" type="PackedScene" id=4]
 
-[node name="Node" type="Node" index="0"]
+[node name="Node" type="Node"]
 
 [node name="StaticBody2D" parent="." index="0" instance=ExtResource( 1 )]
 
@@ -44,5 +44,7 @@ position = Vector2( 832, 284 )
 position = Vector2( 1870, 898 )
 rotation = -3.4643
 VARIANCE = 500.0
+TIME_BETWEEN_BALLS = 3
+INITIAL_DELAY = 0
 
 
