@@ -2,6 +2,7 @@ extends RigidBody2D
 
 var lifetime = 0
 const MAX_HIT_DISTANCE = 200
+const MIN_HIT_DISTANCE = 70
 const HIT_SPEED_MIN = 1000
 const HIT_SPEED_MAX = 2000
 
@@ -15,6 +16,6 @@ func _process(delta):
 
 func player_swing(pos):
 	var delta = position - pos
-	var strength = 1 - delta.length() / MAX_HIT_DISTANCE
+	var strength = 1 - (delta.length() - MIN_HIT_DISTANCE) / (MAX_HIT_DISTANCE - MIN_HIT_DISTANCE)
 	if strength > 0:
-		linear_velocity = delta.normalized() * (HIT_SPEED_MIN + strength * (HIT_SPEED_MAX - HIT_SPEED_MIN))
+		linear_velocity = delta.normalized() * (HIT_SPEED_MIN + min(1, strength) * (HIT_SPEED_MAX - HIT_SPEED_MIN))
