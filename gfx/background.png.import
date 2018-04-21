@@ -7,10 +7,10 @@ path="res://.import/background.png-34463f2717b0502091d019b33ae7e4f3.stex"
 [deps]
 
 source_file="res://gfx/background.png"
-source_md5="aa490d0e4752ad511f6e28dfab2e905b"
+source_md5="b11e5824a829263648fbb7c5ed0fcbc1"
 
 dest_files=[ "res://.import/background.png-34463f2717b0502091d019b33ae7e4f3.stex" ]
-dest_md5="bd787cc076810d3ce0599b000886ed2e"
+dest_md5="36a8c47a880bf8db6b347b4a1c1f4015"
 
 [params]
 

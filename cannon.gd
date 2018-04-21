@@ -3,13 +3,14 @@ extends Node2D
 export (float) var SPEED = 1200
 export (float) var VARIANCE = 200
 export (float) var TIME_BETWEEN_BALLS = 3
-export (float) var INITIAL_DELAY = 0
+export (bool) var START_ACTIVATED = true
 
 var ball_template = load("res://ball.tscn")
-var timer = INITIAL_DELAY
+var timer = 0
 
 func _ready():
-	pass
+	if !START_ACTIVATED:
+		timer = 1000000
 
 func _process(delta):
 	timer -= delta
@@ -20,3 +21,6 @@ func _process(delta):
 		ball.linear_velocity = transform.y * SPEED
 		ball.linear_velocity += Vector2(rand_range(-0.5, 0.5), rand_range(-0.5, 0.5)) * VARIANCE
 		get_parent().add_child(ball)
+
+func activate():
+	timer = 0

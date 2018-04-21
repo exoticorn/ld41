@@ -1,7 +1,7 @@
 extends RigidBody2D
 
 var lifetime = 0
-const MAX_HIT_DISTANCE = 200
+const MAX_HIT_DISTANCE = 250
 const HIT_SPEED = 1500
 const BALL_BOUNCE = 0.5
 

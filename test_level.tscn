@@ -1,50 +1,66 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=7 format=2]
 
-[ext_resource path="res://platform.tscn" type="PackedScene" id=1]
-[ext_resource path="res://player.tscn" type="PackedScene" id=2]
-[ext_resource path="res://ball.tscn" type="PackedScene" id=3]
+[ext_resource path="res://test_level.gd" type="Script" id=1]
+[ext_resource path="res://platform.tscn" type="PackedScene" id=2]
+[ext_resource path="res://player.tscn" type="PackedScene" id=3]
 [ext_resource path="res://cannon.tscn" type="PackedScene" id=4]
+[ext_resource path="res://net.tscn" type="PackedScene" id=5]
+[ext_resource path="res://balloon.tscn" type="PackedScene" id=6]
 
-[node name="Node" type="Node"]
+[node name="TestLevel" type="Node" index="0"]
 
-[node name="StaticBody2D" parent="." index="0" instance=ExtResource( 1 )]
+script = ExtResource( 1 )
+
+[node name="StaticBody2D" parent="." index="0" instance=ExtResource( 2 )]
 
 position = Vector2( 208, 1040 )
 
-[node name="StaticBody2D2" parent="." index="1" instance=ExtResource( 1 )]
+[node name="StaticBody2D2" parent="." index="1" instance=ExtResource( 2 )]
 
 position = Vector2( 644, 1044 )
 
-[node name="StaticBody2D3" parent="." index="2" instance=ExtResource( 1 )]
+[node name="StaticBody2D3" parent="." index="2" instance=ExtResource( 2 )]
 
 position = Vector2( 1060, 1042 )
 
-[node name="StaticBody2D5" parent="." index="3" instance=ExtResource( 1 )]
+[node name="StaticBody2D5" parent="." index="3" instance=ExtResource( 2 )]
 
 position = Vector2( 1478, 1044 )
 
-[node name="StaticBody2D4" parent="." index="4" instance=ExtResource( 1 )]
+[node name="StaticBody2D4" parent="." index="4" instance=ExtResource( 2 )]
 
 position = Vector2( 678, 626 )
 
-[node name="StaticBody2D6" parent="." index="5" instance=ExtResource( 1 )]
+[node name="StaticBody2D6" parent="." index="5" instance=ExtResource( 2 )]
 
 position = Vector2( 1416, 444 )
 
-[node name="KinematicBody2D" parent="." index="6" instance=ExtResource( 2 )]
+[node name="KinematicBody2D" parent="." index="6" instance=ExtResource( 3 )]
 
 position = Vector2( 178, 868 )
 
-[node name="Ball" parent="." index="7" instance=ExtResource( 3 )]
-
-position = Vector2( 832, 284 )
-
-[node name="Cannon" parent="." index="8" instance=ExtResource( 4 )]
+[node name="Cannon" parent="." index="7" instance=ExtResource( 4 )]
 
 position = Vector2( 1870, 898 )
 rotation = -3.4643
 VARIANCE = 500.0
-TIME_BETWEEN_BALLS = 3
-INITIAL_DELAY = 0
+START_ACTIVATED = true
+
+[node name="Net" parent="." index="8" instance=ExtResource( 5 )]
+
+position = Vector2( 1664, 744 )
+
+[node name="Balloon" parent="." index="9" instance=ExtResource( 6 )]
+
+position = Vector2( 2334, 682 )
+_sections_unfolded = [ "Collision", "Transform" ]
+
+[node name="Cannon2" parent="." index="10" instance=ExtResource( 4 )]
+
+position = Vector2( 2626, 864 )
+rotation = -4.06482
+START_ACTIVATED = false
+
+[connection signal="destroyed" from="Balloon" to="Net" method="remove"]
 
 
