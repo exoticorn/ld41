@@ -7,10 +7,10 @@ path="res://.import/tileset.png-0800c3492d9fc951a8af31503db5236f.stex"
 [deps]
 
 source_file="res://gfx/tileset.png"
-source_md5="2dbdf08f837d11678d8ec3af4ef76b64"
+source_md5="4c3c95966297e253d4a7faa790b12fe7"
 
 dest_files=[ "res://.import/tileset.png-0800c3492d9fc951a8af31503db5236f.stex" ]
-dest_md5="bb9a5fd2242e13039c82cfce77196cf1"
+dest_md5="5f0121529fdddce6b2c55562fdfcdcbf"
 
 [params]
 
