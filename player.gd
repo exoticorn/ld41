@@ -25,7 +25,7 @@ func _ready():
 
 func _process(delta):
 	if Input.is_action_just_pressed('game_swing'):
-		get_tree().call_group('balls', 'player_swing', position + Vector2(0, -30))
+		get_tree().call_group('balls', 'player_swing', position + Vector2(-50, -30))
 
 func _physics_process(delta):
 	var gravity = GRAVITY
@@ -62,7 +62,7 @@ func _physics_process(delta):
 			var dir = 0
 			for i in range(get_slide_count()):
 				var c = get_slide_collision(i)
-				if abs(c.normal.y) < 0.01:
+				if abs(c.normal.y) < 0.01 && c.collider is TileMap:
 					dir += c.normal.x
 			if dir != 0:
 				movement.y = -WALL_JUMP
