@@ -5,6 +5,8 @@ var air_time = 0
 var time_since_jump_pressed = 0
 var jump_time = 100
 var wall_jump_time = 100
+var one_shot_done = true
+var wall_dir = 0
 
 const GRAVITY = 2500
 const WALL_GRAVITY = 1000
@@ -21,11 +23,29 @@ const GROUND_ACCEL = 8500
 const AIR_ACCEL = 3700
 
 func _ready():
+	$AnimatedSprite.connect("animation_finished", self, 'animation_finished')
 	pass
 
 func _process(delta):
 	if Input.is_action_just_pressed('game_swing'):
 		get_tree().call_group('balls', 'player_swing', position + Vector2(-25, -30))
+		$AnimatedSprite.play('swing')
+		one_shot_done = false
+	
+	if !one_shot_done:
+		pass
+	elif is_on_wall():
+		$AnimatedSprite.animation = 'slide'
+		$AnimatedSprite.flip_h = wall_dir > 0
+	elif !is_on_floor():
+		$AnimatedSprite.animation = 'jump'
+	else:
+		$AnimatedSprite.animation = 'run'
+		if abs(movement.x) > 20:
+			$AnimatedSprite.playing = true
+		else:
+			$AnimatedSprite.playing = false
+	$AnimatedSprite.flip_h = $AnimatedSprite.animation == 'slide' && wall_dir > 0
 
 func _physics_process(delta):
 	var gravity = GRAVITY
@@ -51,6 +71,12 @@ func _physics_process(delta):
 	else:
 		time_since_jump_pressed += delta
 	jump_time += delta
+	if is_on_wall():
+		wall_dir = 0
+		for i in range(get_slide_count()):
+			var c = get_slide_collision(i)
+			if abs(c.normal.y) < 0.01 && c.collider is TileMap:
+				wall_dir += c.normal.x
 	if Input.is_action_pressed('game_jump'):
 		if jump_time < JUMP_VARI_TIME:
 			movement.y -= (MAX_JUMP - MIN_JUMP) / 3 / JUMP_VARI_TIME * delta
@@ -59,14 +85,9 @@ func _physics_process(delta):
 			air_time = 100
 			jump_time = 0
 		elif is_on_wall() && time_since_jump_pressed < 0.15:
-			var dir = 0
-			for i in range(get_slide_count()):
-				var c = get_slide_collision(i)
-				if abs(c.normal.y) < 0.01 && c.collider is TileMap:
-					dir += c.normal.x
-			if dir != 0:
+			if wall_dir != 0:
 				movement.y = -WALL_JUMP
-				movement.x = WALL_JUMP_HOR * sign(dir)
+				movement.x = WALL_JUMP_HOR * sign(wall_dir)
 				jump_time = 100
 				wall_jump_time = 0
 	elif jump_time < JUMP_VARI_TIME:
@@ -81,3 +102,6 @@ func _physics_process(delta):
 	else:
 		movement.x = min(target_x, movement.x + step)
 	movement = move_and_slide(movement, Vector2(0, -1))
+
+func animation_finished():
+	one_shot_done = true
