@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/swing.wav-579079efd47890f99e65bb209ef03d44.sample"
+
+[deps]
+
+source_file="res://sfx/swing.wav"
+source_md5="0783d9f57ca0ee5be9b97de6e1d00302"
+
+dest_files=[ "res://.import/swing.wav-579079efd47890f99e65bb209ef03d44.sample" ]
+dest_md5="df6dd400b0bbccb9917d0e28424455df"
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

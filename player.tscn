@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://player.gd" type="Script" id=1]
 [ext_resource path="res://gfx/slide0000.png" type="Texture" id=2]
@@ -9,6 +9,8 @@
 [ext_resource path="res://gfx/run0000.png" type="Texture" id=7]
 [ext_resource path="res://gfx/run0001.png" type="Texture" id=8]
 [ext_resource path="res://gfx/run0002.png" type="Texture" id=9]
+[ext_resource path="res://sfx/jump.wav" type="AudioStream" id=10]
+[ext_resource path="res://sfx/swing.wav" type="AudioStream" id=11]
 
 [sub_resource type="CapsuleShape2D" id=1]
 
@@ -40,7 +42,7 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[node name="Player" type="KinematicBody2D" index="0"]
+[node name="Player" type="KinematicBody2D"]
 
 input_pickable = false
 collision_layer = 5
@@ -88,5 +90,25 @@ _sections_unfolded = [ "Drag Margin" ]
 frames = SubResource( 2 )
 animation = "run"
 frame = 3
+
+[node name="JumpSfx" type="AudioStreamPlayer2D" parent="." index="3"]
+
+stream = ExtResource( 10 )
+volume_db = 0.0
+autoplay = false
+max_distance = 2000.0
+attenuation = 1.0
+bus = "Master"
+area_mask = 1
+
+[node name="SwingSfx" type="AudioStreamPlayer2D" parent="." index="4"]
+
+stream = ExtResource( 11 )
+volume_db = 0.0
+autoplay = false
+max_distance = 2000.0
+attenuation = 1.0
+bus = "Master"
+area_mask = 1
 
 

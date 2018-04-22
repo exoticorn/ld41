@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/cannon_shoot.wav-6d522f0ec2367950d23b0695a016e6d5.sample"
+
+[deps]
+
+source_file="res://sfx/cannon_shoot.wav"
+source_md5="0a4340e29d387b1123bf3ec39068c689"
+
+dest_files=[ "res://.import/cannon_shoot.wav-6d522f0ec2367950d23b0695a016e6d5.sample" ]
+dest_md5="fdc7b15e8cd00deccf96eb3fc26221fc"
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

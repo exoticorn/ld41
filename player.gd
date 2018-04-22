@@ -31,6 +31,7 @@ func _process(delta):
 		get_tree().call_group('balls', 'player_swing', position + Vector2(-25, -30))
 		$AnimatedSprite.play('swing')
 		one_shot_done = false
+		$SwingSfx.play()
 	
 	if !one_shot_done:
 		pass
@@ -75,7 +76,7 @@ func _physics_process(delta):
 		wall_dir = 0
 		for i in range(get_slide_count()):
 			var c = get_slide_collision(i)
-			if abs(c.normal.y) < 0.01 && c.collider is TileMap:
+			if c.collider && abs(c.normal.y) < 0.01 && c.collider is TileMap:
 				wall_dir += c.normal.x
 	if Input.is_action_pressed('game_jump'):
 		if jump_time < JUMP_VARI_TIME:
@@ -84,12 +85,14 @@ func _physics_process(delta):
 			movement.y = -(MIN_JUMP + MAX_JUMP) * 2 / 3
 			air_time = 100
 			jump_time = 0
+			$JumpSfx.play()
 		elif is_on_wall() && time_since_jump_pressed < 0.15:
 			if wall_dir != 0:
 				movement.y = -WALL_JUMP
 				movement.x = WALL_JUMP_HOR * sign(wall_dir)
 				jump_time = 100
 				wall_jump_time = 0
+				$JumpSfx.play()
 	elif jump_time < JUMP_VARI_TIME:
 		movement.y += (MAX_JUMP - MIN_JUMP) / 2 / JUMP_VARI_TIME * delta
 	var target_x = input_x * RUN_SPEED

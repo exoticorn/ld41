@@ -19,6 +19,7 @@ func player_swing(pos):
 	var delta = global_position - pos
 	if delta.x < -MAX_HIT_DISTANCE:
 		return
+	$HitSfx.play()
 	if delta.x < MAX_HIT_DISTANCE / 2:
 		delta.x = MAX_HIT_DISTANCE / 2
 	if delta.length() < MAX_HIT_DISTANCE:
@@ -27,6 +28,7 @@ func player_swing(pos):
 		bounce_count = 0
 
 func count_bounce(o):
+	$HitSfx.play()
 	bounce_count += 1
 	if bounce_count >= 2:
 		queue_free()

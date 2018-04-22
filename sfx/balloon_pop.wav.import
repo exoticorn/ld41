@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/balloon_pop.wav-30fe779a6391731c9fe68684fdbf60cd.sample"
+
+[deps]
+
+source_file="res://sfx/balloon_pop.wav"
+source_md5="1475d7fda4bff50469dfb4619837ba30"
+
+dest_files=[ "res://.import/balloon_pop.wav-30fe779a6391731c9fe68684fdbf60cd.sample" ]
+dest_md5="65394e161920d81038ceb6d6ebf09f2b"
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

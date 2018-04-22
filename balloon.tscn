@@ -1,9 +1,10 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://balloon.gd" type="Script" id=1]
 [ext_resource path="res://gfx/background.png" type="Texture" id=2]
+[ext_resource path="res://sfx/balloon_pop.wav" type="AudioStream" id=3]
 
-[node name="Balloon" type="Area2D"]
+[node name="Balloon" type="Area2D" index="0"]
 
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
@@ -31,5 +32,15 @@ _sections_unfolded = [ "Region" ]
 
 build_mode = 0
 polygon = PoolVector2Array( -28, 156, -120, 16, -120, -112, -4, -192, 104, -144, 124, -12 )
+
+[node name="PopSfx" type="AudioStreamPlayer2D" parent="." index="2"]
+
+stream = ExtResource( 3 )
+volume_db = 0.0
+autoplay = false
+max_distance = 2000.0
+attenuation = 1.0
+bus = "Master"
+area_mask = 1
 
 

@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://ball.gd" type="Script" id=1]
 [ext_resource path="res://gfx/background.png" type="Texture" id=2]
+[ext_resource path="res://sfx/hit_ball.wav" type="AudioStream" id=3]
 
 [sub_resource type="CircleShape2D" id=1]
 
@@ -48,5 +49,15 @@ _sections_unfolded = [ "Region", "Transform" ]
 
 position = Vector2( -2, -0.5 )
 shape = SubResource( 1 )
+
+[node name="HitSfx" type="AudioStreamPlayer2D" parent="." index="2"]
+
+stream = ExtResource( 3 )
+volume_db = 0.0
+autoplay = false
+max_distance = 2000.0
+attenuation = 1.0
+bus = "Master"
+area_mask = 1
 
 
