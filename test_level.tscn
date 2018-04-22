@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://test_level.gd" type="Script" id=1]
 [ext_resource path="res://platform.tscn" type="PackedScene" id=2]
@@ -6,8 +6,9 @@
 [ext_resource path="res://cannon.tscn" type="PackedScene" id=4]
 [ext_resource path="res://net.tscn" type="PackedScene" id=5]
 [ext_resource path="res://balloon.tscn" type="PackedScene" id=6]
+[ext_resource path="res://tileset.tres" type="TileSet" id=7]
 
-[node name="TestLevel" type="Node"]
+[node name="TestLevel" type="Node" index="0"]
 
 script = ExtResource( 1 )
 
@@ -59,6 +60,27 @@ _sections_unfolded = [ "Collision", "Transform" ]
 position = Vector2( 2626, 864 )
 rotation = -7.10357
 START_ACTIVATED = false
+
+[node name="TileMap" type="TileMap" parent="." index="11"]
+
+mode = 0
+tile_set = ExtResource( 7 )
+cell_size = Vector2( 128, 128 )
+cell_quadrant_size = 16
+cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+cell_half_offset = 2
+cell_tile_origin = 0
+cell_y_sort = false
+cell_clip_uv = false
+collision_use_kinematic = false
+collision_friction = 1.0
+collision_bounce = 0.0
+collision_layer = 3
+collision_mask = 3
+occluder_light_mask = 1
+format = 1
+tile_data = PoolIntArray( 65534, 0, 0, 65535, 0, 2, 131070, 0, 65536, 131071, 0, 65538, 196606, 0, 65536, 196607, 0, 65538, 262142, 0, 65536, 262143, 0, 65538, 327678, 0, 65536, 327679, 0, 65538, 262167, 0, 0, 262168, 0, 1, 262169, 0, 1, 262170, 0, 1, 262171, 0, 2, 393214, 0, 65536, 393215, 0, 65538, 327703, 0, 65536, 327704, 0, 65537, 327705, 0, 65537, 327706, 0, 65537, 327707, 0, 65538, 458750, 0, 65536, 458751, 0, 65538, 393238, 0, 0, 393239, 0, 1, 393240, 0, 65537, 393241, 0, 65537, 393242, 0, 65537, 393243, 0, 65538, 524286, 0, 65536, 524287, 0, 65538, 458774, 0, 65536, 458775, 0, 65537, 458776, 0, 65537, 458777, 0, 1, 458778, 0, 131073, 458779, 0, 131074, 589822, 0, 65536, 589823, 0, 65538, 524301, 0, 0, 524302, 0, 1, 524303, 0, 1, 524304, 0, 1, 524305, 0, 1, 524306, 0, 1, 524307, 0, 1, 524308, 0, 1, 524309, 0, 1, 524310, 0, 1, 524311, 0, 65537, 524312, 0, 65537, 524313, 0, 65538, 655358, 0, 65536, 655359, 0, 1, 589824, 0, 1, 589825, 0, 1, 589826, 0, 1, 589827, 0, 1, 589828, 0, 1, 589829, 0, 1, 589830, 0, 1, 589831, 0, 1, 589832, 0, 1, 589833, 0, 1, 589834, 0, 1, 589835, 0, 1, 589836, 0, 1, 589837, 0, 1, 589838, 0, 1, 589839, 0, 131073, 589840, 0, 131073, 589841, 0, 131073, 589842, 0, 131073, 589843, 0, 131073, 589844, 0, 131073, 589845, 0, 131073, 589846, 0, 131073, 589847, 0, 131073, 589848, 0, 131073, 589849, 0, 131074, 720894, 0, 131072, 720895, 0, 131073, 655360, 0, 131073, 655361, 0, 131073, 655362, 0, 131073, 655363, 0, 131073, 655364, 0, 131073, 655365, 0, 131073, 655366, 0, 131073, 655367, 0, 131073, 655368, 0, 131073, 655369, 0, 131073, 655370, 0, 131073, 655371, 0, 131073, 655372, 0, 131073, 655373, 0, 131073, 655374, 0, 131074 )
+_sections_unfolded = [ "Cell", "Collision" ]
 
 [connection signal="destroyed" from="Balloon" to="Net" method="remove"]
 
