@@ -86,6 +86,7 @@ func _physics_process(delta):
 			air_time = 100
 			jump_time = 0
 			$JumpSfx.play()
+			time_since_jump_pressed = 100
 		elif is_on_wall() && time_since_jump_pressed < 0.15:
 			if wall_dir != 0:
 				movement.y = -WALL_JUMP

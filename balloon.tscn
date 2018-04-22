@@ -4,7 +4,7 @@
 [ext_resource path="res://gfx/background.png" type="Texture" id=2]
 [ext_resource path="res://sfx/balloon_pop.wav" type="AudioStream" id=3]
 
-[node name="Balloon" type="Area2D" index="0"]
+[node name="Balloon" type="Area2D"]
 
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )

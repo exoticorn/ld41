@@ -42,7 +42,7 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[node name="Player" type="KinematicBody2D"]
+[node name="Player" type="KinematicBody2D" index="0"]
 
 input_pickable = false
 collision_layer = 5
@@ -94,7 +94,7 @@ frame = 3
 [node name="JumpSfx" type="AudioStreamPlayer2D" parent="." index="3"]
 
 stream = ExtResource( 10 )
-volume_db = 0.0
+volume_db = -6.0
 autoplay = false
 max_distance = 2000.0
 attenuation = 1.0
