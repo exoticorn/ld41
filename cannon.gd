@@ -3,10 +3,11 @@ extends Node2D
 export (float) var SPEED = 1200
 export (float) var VARIANCE = 200
 export (float) var TIME_BETWEEN_BALLS = 3
+export (float) var DELAY = 0
 export (bool) var START_ACTIVATED = true
 
 var ball_template = load("res://ball.tscn")
-var timer = 0
+var timer = DELAY
 
 func _ready():
 	if !START_ACTIVATED:
@@ -23,4 +24,4 @@ func _process(delta):
 		get_parent().add_child(ball)
 
 func activate():
-	timer = 0
+	timer = DELAY

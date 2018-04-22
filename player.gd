@@ -25,7 +25,7 @@ func _ready():
 
 func _process(delta):
 	if Input.is_action_just_pressed('game_swing'):
-		get_tree().call_group('balls', 'player_swing', position + Vector2(-50, -30))
+		get_tree().call_group('balls', 'player_swing', position + Vector2(-25, -30))
 
 func _physics_process(delta):
 	var gravity = GRAVITY
